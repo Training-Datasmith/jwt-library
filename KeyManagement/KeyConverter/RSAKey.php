@@ -210,8 +210,10 @@ final class RSAKey
             for ($i = 1; $i <= 100; ++$i) {
                 $g = BigInteger::random($n->subtract($one));
                 $y = $g->modPow($r, $n);
-
-                if ($y->equals($one) || $y->equals($n->subtract($one))) {
+                if ($y->equals($one)) {
+                    continue;
+                }
+                if ($y->equals($n->subtract($one))) {
                     continue;
                 }
 

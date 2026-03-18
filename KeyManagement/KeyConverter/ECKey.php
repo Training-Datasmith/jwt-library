@@ -42,10 +42,7 @@ final class ECKey
         return new self($data);
     }
 
-    /**
-     * @return array
-     */
-    public function toArray()
+    public function toArray(): array
     {
         return $this->values;
     }

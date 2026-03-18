@@ -205,7 +205,7 @@ class JWKSet implements Countable, IteratorAggregate, JsonSerializable
             return null;
         }
 
-        usort($result, [$this, 'sortKeys']);
+        usort($result, $this->sortKeys(...));
 
         return $result[0]['key'];
     }
