@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace Jose\Component\KeyManagement\Analyzer;
 
+use function count;
+use function is_string;
+
 use Jose\Component\Core\JWK;
 use Jose\Component\Core\Util\Base64UrlSafe;
 use Override;
 use SensitiveParameter;
-use function count;
-use function is_string;
+
 use function strlen;
 
 final readonly class ZxcvbnKeyAnalyzer implements KeyAnalyzer

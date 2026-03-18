@@ -4,17 +4,22 @@ declare(strict_types=1);
 
 namespace Jose\Component\Encryption\Algorithm\KeyEncryption\Util;
 
+use function chr;
+use function count;
+
 use InvalidArgumentException;
 use Jose\Component\Core\Util\BigInteger;
 use Jose\Component\Core\Util\Hash;
 use Jose\Component\Core\Util\RSAKey;
 use LogicException;
-use RuntimeException;
-use function chr;
-use function count;
+
 use function ord;
-use function strlen;
+
+use RuntimeException;
+
 use const STR_PAD_LEFT;
+
+use function strlen;
 
 /**
  * @internal

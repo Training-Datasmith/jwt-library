@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace Jose\Component\Checker;
 
-use Override;
 use function in_array;
 use function is_array;
 use function is_string;
+
+use Override;
 
 /**
  * Represents a class that checks the audience claim and header in a JWT token.

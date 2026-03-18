@@ -6,8 +6,10 @@ namespace Jose\Component\Encryption\Algorithm\KeyEncryption\Util;
 
 use InvalidArgumentException;
 use Jose\Component\Core\Util\Base64UrlSafe;
-use function strlen;
+
 use const STR_PAD_LEFT;
+
+use function strlen;
 
 /**
  * @internal

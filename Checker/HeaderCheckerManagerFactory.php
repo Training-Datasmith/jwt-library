@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Jose\Component\Checker;
 
 use InvalidArgumentException;
+
 use function sprintf;
 
 /**

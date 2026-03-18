@@ -4,10 +4,14 @@ declare(strict_types=1);
 
 namespace Jose\Component\Checker;
 
-use InvalidArgumentException;
-use Override;
 use function call_user_func;
+
+use InvalidArgumentException;
+
 use function is_callable;
+
+use Override;
+
 use function sprintf;
 
 /**

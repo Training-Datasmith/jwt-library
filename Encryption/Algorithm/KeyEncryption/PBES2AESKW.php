@@ -8,14 +8,18 @@ use AESKW\A128KW;
 use AESKW\A192KW;
 use AESKW\A256KW;
 use AESKW\Wrapper as WrapperInterface;
+
+use function in_array;
+
 use InvalidArgumentException;
+
+use function is_int;
+use function is_string;
+
 use Jose\Component\Core\JWK;
 use Jose\Component\Core\Util\Base64UrlSafe;
 use Override;
 use RuntimeException;
-use function in_array;
-use function is_int;
-use function is_string;
 
 abstract readonly class PBES2AESKW implements KeyWrapping
 {

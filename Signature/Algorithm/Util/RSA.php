@@ -4,16 +4,21 @@ declare(strict_types=1);
 
 namespace Jose\Component\Signature\Algorithm\Util;
 
+use function chr;
+use function extension_loaded;
+
 use InvalidArgumentException;
 use Jose\Component\Core\Util\BigInteger;
 use Jose\Component\Core\Util\Hash;
 use Jose\Component\Core\Util\RSAKey;
-use RuntimeException;
-use function chr;
-use function extension_loaded;
+
 use function ord;
-use function strlen;
+
+use RuntimeException;
+
 use const STR_PAD_LEFT;
+
+use function strlen;
 
 /**
  * @internal

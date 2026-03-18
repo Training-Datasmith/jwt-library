@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace Jose\Component\Checker;
 
-use Override;
 use function in_array;
 use function is_string;
+
+use Override;
 
 /**
  * This class is a header parameter and claim checker.

@@ -5,9 +5,12 @@ declare(strict_types=1);
 namespace Jose\Component\Core\Util;
 
 use InvalidArgumentException;
+
 use function is_string;
-use function strlen;
+
 use const STR_PAD_LEFT;
+
+use function strlen;
 
 /**
  * @internal

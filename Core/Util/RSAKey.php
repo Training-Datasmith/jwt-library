@@ -4,7 +4,13 @@ declare(strict_types=1);
 
 namespace Jose\Component\Core\Util;
 
+use function array_key_exists;
+use function count;
+
 use InvalidArgumentException;
+
+use function is_array;
+
 use Jose\Component\Core\JWK;
 use RuntimeException;
 use SpomkyLabs\Pki\ASN1\Type\Constructed\Sequence;
@@ -15,9 +21,7 @@ use SpomkyLabs\Pki\CryptoEncoding\PEM;
 use SpomkyLabs\Pki\CryptoTypes\AlgorithmIdentifier\Asymmetric\RSAEncryptionAlgorithmIdentifier;
 use SpomkyLabs\Pki\CryptoTypes\Asymmetric\RSA\RSAPrivateKey;
 use SpomkyLabs\Pki\CryptoTypes\Asymmetric\RSA\RSAPublicKey;
-use function array_key_exists;
-use function count;
-use function is_array;
+
 use function strlen;
 
 /**

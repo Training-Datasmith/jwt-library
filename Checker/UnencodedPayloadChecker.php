@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace Jose\Component\Checker;
 
-use Override;
 use function is_bool;
+
+use Override;
 
 /**
  * This class is a header parameter checker. When the "b64" is present, it will check if the value is a boolean or not.

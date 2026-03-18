@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace Jose\Component\Checker;
 
-use Override;
-use Psr\Clock\ClockInterface;
 use function is_float;
 use function is_int;
+
+use Override;
+use Psr\Clock\ClockInterface;
 
 /**
  * This class is a claim checker. When the "nbf" is present, it will compare the value with the current timestamp.

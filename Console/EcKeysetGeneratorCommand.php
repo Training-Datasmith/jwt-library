@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace Jose\Component\Console;
 
 use InvalidArgumentException;
+
+use function is_string;
+
 use Jose\Component\Core\JWKSet;
 use Jose\Component\KeyManagement\JWKFactory;
 use Override;
@@ -12,9 +15,8 @@ use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use function is_string;
 
-#[AsCommand(name: 'keyset:generate:ec', description: 'Generate an EC key set (JWKSet format)',)]
+#[AsCommand(name: 'keyset:generate:ec', description: 'Generate an EC key set (JWKSet format)', )]
 final class EcKeysetGeneratorCommand extends GeneratorCommand
 {
     #[Override]

@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace Jose\Component\Checker;
 
-use Override;
 use function in_array;
 use function is_string;
+
+use Override;
 
 /**
  * AlgorithmChecker class.

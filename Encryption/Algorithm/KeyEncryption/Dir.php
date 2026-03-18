@@ -4,12 +4,15 @@ declare(strict_types=1);
 
 namespace Jose\Component\Encryption\Algorithm\KeyEncryption;
 
+use function in_array;
+
 use InvalidArgumentException;
+
+use function is_string;
+
 use Jose\Component\Core\JWK;
 use Jose\Component\Core\Util\Base64UrlSafe;
 use Override;
-use function in_array;
-use function is_string;
 
 final readonly class Dir implements DirectEncryption
 {

@@ -4,11 +4,35 @@ declare(strict_types=1);
 
 namespace Jose\Component\KeyManagement\KeyConverter;
 
+use function array_key_exists;
+use function assert;
+
 use Brick\Math\BigInteger;
+
+use function count;
+
+use const E_ERROR;
+use const E_PARSE;
+
+use function extension_loaded;
+use function in_array;
+
 use InvalidArgumentException;
+
+use function is_array;
+use function is_string;
+
 use Jose\Component\Core\Util\Base64UrlSafe;
+
+use const OPENSSL_KEYTYPE_EC;
+use const OPENSSL_KEYTYPE_RSA;
+use const OPENSSL_RAW_DATA;
+
 use OpenSSLCertificate;
 use ParagonIE\Sodium\Core\Ed25519;
+
+use const PREG_PATTERN_ORDER;
+
 use RuntimeException;
 use SpomkyLabs\Pki\ASN1\Type\Constructed\Sequence;
 use SpomkyLabs\Pki\ASN1\Type\UnspecifiedType;
@@ -17,21 +41,10 @@ use SpomkyLabs\Pki\CryptoTypes\AlgorithmIdentifier\AlgorithmIdentifier;
 use SpomkyLabs\Pki\CryptoTypes\Asymmetric\PrivateKey;
 use SpomkyLabs\Pki\CryptoTypes\Asymmetric\PublicKey;
 use SpomkyLabs\Pki\CryptoTypes\Asymmetric\RSA\RSASSAPSSPrivateKey;
-use Throwable;
-use function array_key_exists;
-use function assert;
-use function count;
-use function extension_loaded;
-use function in_array;
-use function is_array;
-use function is_string;
+
 use function sprintf;
-use const E_ERROR;
-use const E_PARSE;
-use const OPENSSL_KEYTYPE_EC;
-use const OPENSSL_KEYTYPE_RSA;
-use const OPENSSL_RAW_DATA;
-use const PREG_PATTERN_ORDER;
+
+use Throwable;
 
 /**
  * @internal

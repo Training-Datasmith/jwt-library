@@ -4,20 +4,30 @@ declare(strict_types=1);
 
 namespace Jose\Component\Core\Util;
 
-use InvalidArgumentException;
-use RangeException;
-use SensitiveParameter;
-use SodiumException;
 use function extension_loaded;
+
+use InvalidArgumentException;
+
 use function pack;
+
+use RangeException;
+
 use function rtrim;
+
+use SensitiveParameter;
+
 use function sodium_base642bin;
+
+use const SODIUM_BASE64_VARIANT_URLSAFE;
+use const SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING;
+
 use function sodium_bin2base64;
+
+use SodiumException;
+
 use function strlen;
 use function substr;
 use function unpack;
-use const SODIUM_BASE64_VARIANT_URLSAFE;
-use const SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING;
 
 /**
  *  Copyright (c) 2016 - 2022 Paragon Initiative Enterprises.

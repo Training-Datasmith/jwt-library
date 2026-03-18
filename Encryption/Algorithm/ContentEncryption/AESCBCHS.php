@@ -4,13 +4,17 @@ declare(strict_types=1);
 
 namespace Jose\Component\Encryption\Algorithm\ContentEncryption;
 
+use function extension_loaded;
+
 use Jose\Component\Core\Util\Base64UrlSafe;
 use Jose\Component\Encryption\Algorithm\ContentEncryptionAlgorithm;
+
+use const OPENSSL_RAW_DATA;
+
 use Override;
 use RuntimeException;
-use function extension_loaded;
+
 use function strlen;
-use const OPENSSL_RAW_DATA;
 
 abstract readonly class AESCBCHS implements ContentEncryptionAlgorithm
 {

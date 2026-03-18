@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace Jose\Component\KeyManagement\Analyzer;
 
+use function is_string;
+
 use Jose\Component\Core\JWK;
 use Jose\Component\Core\Util\Base64UrlSafe;
 use Override;
-use function is_string;
+
 use function sprintf;
 use function strlen;
 

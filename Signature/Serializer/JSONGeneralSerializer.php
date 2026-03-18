@@ -4,16 +4,19 @@ declare(strict_types=1);
 
 namespace Jose\Component\Signature\Serializer;
 
+use function array_key_exists;
+use function count;
+
 use InvalidArgumentException;
+
+use function is_array;
+use function is_string;
+
 use Jose\Component\Core\Util\Base64UrlSafe;
 use Jose\Component\Core\Util\JsonConverter;
 use Jose\Component\Signature\JWS;
 use LogicException;
 use Override;
-use function array_key_exists;
-use function count;
-use function is_array;
-use function is_string;
 
 final readonly class JSONGeneralSerializer extends Serializer
 {

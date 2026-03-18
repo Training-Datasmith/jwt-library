@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace Jose\Component\Encryption;
 
 use InvalidArgumentException;
+
+use function is_string;
+
 use Jose\Component\Core\Algorithm;
 use Jose\Component\Core\AlgorithmManager;
 use Jose\Component\Core\JWK;
@@ -17,10 +20,11 @@ use Jose\Component\Encryption\Algorithm\KeyEncryption\KeyAgreementWithKeyWrappin
 use Jose\Component\Encryption\Algorithm\KeyEncryption\KeyEncryption;
 use Jose\Component\Encryption\Algorithm\KeyEncryption\KeyWrapping;
 use Jose\Component\Encryption\Algorithm\KeyEncryptionAlgorithm;
-use Throwable;
-use function is_string;
+
 use function sprintf;
 use function strlen;
+
+use Throwable;
 
 class JWEDecrypter
 {

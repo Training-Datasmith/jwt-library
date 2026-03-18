@@ -5,12 +5,14 @@ declare(strict_types=1);
 namespace Jose\Component\KeyManagement\Analyzer;
 
 use ArrayIterator;
+
+use function count;
+
 use Countable;
 use IteratorAggregate;
 use JsonSerializable;
 use Override;
 use Traversable;
-use function count;
 
 final class MessageBag implements JsonSerializable, IteratorAggregate, Countable
 {

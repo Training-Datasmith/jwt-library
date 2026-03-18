@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace Jose\Component\Encryption;
 
+use function array_key_exists;
+use function count;
+
 use InvalidArgumentException;
 use Jose\Component\Core\JWT;
 use Override;
-use function array_key_exists;
-use function count;
+
 use function sprintf;
 
 class JWE implements JWT

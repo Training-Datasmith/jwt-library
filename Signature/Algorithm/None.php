@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace Jose\Component\Signature\Algorithm;
 
+use function in_array;
+
 use InvalidArgumentException;
 use Jose\Component\Core\JWK;
 use Override;
-use function in_array;
 
 final readonly class None implements SignatureAlgorithm
 {

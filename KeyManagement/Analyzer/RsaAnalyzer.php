@@ -5,13 +5,17 @@ declare(strict_types=1);
 namespace Jose\Component\KeyManagement\Analyzer;
 
 use InvalidArgumentException;
+
+use function is_array;
+use function is_string;
+
 use Jose\Component\Core\JWK;
 use Jose\Component\Core\Util\Base64UrlSafe;
 use Override;
-use function is_array;
-use function is_string;
-use function strlen;
+
 use const STR_PAD_RIGHT;
+
+use function strlen;
 
 final readonly class RsaAnalyzer implements KeyAnalyzer
 {

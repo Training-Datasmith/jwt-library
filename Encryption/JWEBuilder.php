@@ -4,7 +4,13 @@ declare(strict_types=1);
 
 namespace Jose\Component\Encryption;
 
+use function array_key_exists;
+use function count;
+
 use InvalidArgumentException;
+
+use function is_string;
+
 use Jose\Component\Core\AlgorithmManager;
 use Jose\Component\Core\JWK;
 use Jose\Component\Core\Util\Base64UrlSafe;
@@ -19,9 +25,7 @@ use Jose\Component\Encryption\Algorithm\KeyEncryption\KeyWrapping;
 use Jose\Component\Encryption\Algorithm\KeyEncryptionAlgorithm;
 use LogicException;
 use RuntimeException;
-use function array_key_exists;
-use function count;
-use function is_string;
+
 use function sprintf;
 
 class JWEBuilder

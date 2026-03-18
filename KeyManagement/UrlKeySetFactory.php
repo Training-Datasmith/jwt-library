@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace Jose\Component\KeyManagement;
 
+use function assert;
+
 use Psr\Cache\CacheItemPoolInterface;
 use RuntimeException;
 use Symfony\Component\Cache\Adapter\NullAdapter;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
-use function assert;
 
 /**
  * @see \Jose\Tests\Component\KeyManagement\UrlKeySetFactoryTest

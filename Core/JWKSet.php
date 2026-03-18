@@ -4,19 +4,31 @@ declare(strict_types=1);
 
 namespace Jose\Component\Core;
 
-use ArrayIterator;
-use Countable;
-use InvalidArgumentException;
-use IteratorAggregate;
-use JsonSerializable;
-use Traversable;
 use function array_key_exists;
+
+use ArrayIterator;
+
 use function count;
-use function in_array;
-use function is_array;
-use function sprintf;
+
 use const COUNT_NORMAL;
+
+use Countable;
+
+use function in_array;
+
+use InvalidArgumentException;
+
+use function is_array;
+
+use IteratorAggregate;
+
 use const JSON_THROW_ON_ERROR;
+
+use JsonSerializable;
+
+use function sprintf;
+
+use Traversable;
 
 class JWKSet implements Countable, IteratorAggregate, JsonSerializable
 {

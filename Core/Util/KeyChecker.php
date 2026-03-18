@@ -4,11 +4,15 @@ declare(strict_types=1);
 
 namespace Jose\Component\Core\Util;
 
-use InvalidArgumentException;
-use Jose\Component\Core\JWK;
 use function in_array;
+
+use InvalidArgumentException;
+
 use function is_array;
 use function is_string;
+
+use Jose\Component\Core\JWK;
+
 use function sprintf;
 
 /**

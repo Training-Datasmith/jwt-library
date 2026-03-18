@@ -4,16 +4,20 @@ declare(strict_types=1);
 
 namespace Jose\Component\Signature\Algorithm;
 
+use function assert;
+use function extension_loaded;
+use function in_array;
+
 use InvalidArgumentException;
+
+use function is_string;
+
 use Jose\Component\Core\JWK;
 use Jose\Component\Core\Util\Base64UrlSafe;
 use Override;
 use ParagonIE\Sodium\Core\Ed25519;
 use RuntimeException;
-use function assert;
-use function extension_loaded;
-use function in_array;
-use function is_string;
+
 use function sprintf;
 
 final readonly class EdDSA implements SignatureAlgorithm

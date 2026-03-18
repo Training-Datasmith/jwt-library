@@ -4,12 +4,13 @@ declare(strict_types=1);
 
 namespace Jose\Component\Encryption\Algorithm\KeyEncryption;
 
+use function in_array;
+
 use InvalidArgumentException;
 use Jose\Component\Core\JWK;
 use Jose\Component\Core\Util\RSAKey;
 use Jose\Component\Encryption\Algorithm\KeyEncryption\Util\RSACrypt;
 use Override;
-use function in_array;
 
 abstract readonly class RSA implements KeyEncryption
 {

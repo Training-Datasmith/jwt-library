@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace Jose\Component\Signature\Algorithm;
 
+use function in_array;
+
 use InvalidArgumentException;
 use Jose\Component\Core\JWK;
 use Jose\Component\Core\Util\RSAKey;
 use Jose\Component\Signature\Algorithm\Util\RSA as JoseRSA;
 use Override;
-use function in_array;
+
 use function sprintf;
 
 abstract readonly class RSAPSS implements SignatureAlgorithm

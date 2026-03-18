@@ -5,6 +5,10 @@ declare(strict_types=1);
 namespace Jose\Component\Console;
 
 use InvalidArgumentException;
+
+use function is_array;
+use function is_string;
+
 use Jose\Component\Core\JWK;
 use Jose\Component\Core\Util\JsonConverter;
 use Jose\Component\KeyManagement\KeyConverter\RSAKey;
@@ -13,10 +17,8 @@ use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use function is_array;
-use function is_string;
 
-#[AsCommand(name: 'key:optimize', description: 'Optimize a RSA key by calculating additional primes (CRT).',)]
+#[AsCommand(name: 'key:optimize', description: 'Optimize a RSA key by calculating additional primes (CRT).', )]
 final class OptimizeRsaKeyCommand extends ObjectOutputCommand
 {
     #[Override]

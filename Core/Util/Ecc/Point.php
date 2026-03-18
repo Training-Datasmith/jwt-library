@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace Jose\Component\Core\Util\Ecc;
 
 use Brick\Math\BigInteger;
-use function strlen;
+
 use const STR_PAD_LEFT;
+
+use function strlen;
 
 /**
  * Copyright (C) 2012 Matyas Danter.

@@ -4,14 +4,21 @@ declare(strict_types=1);
 
 namespace Jose\Component\Core\Util;
 
-use InvalidArgumentException;
-use Jose\Component\Core\JWK;
-use RuntimeException;
 use function extension_loaded;
+
+use InvalidArgumentException;
+
 use function is_array;
 use function is_string;
-use function sprintf;
+
+use Jose\Component\Core\JWK;
+
 use const OPENSSL_KEYTYPE_EC;
+
+use RuntimeException;
+
+use function sprintf;
+
 use const STR_PAD_LEFT;
 
 /**

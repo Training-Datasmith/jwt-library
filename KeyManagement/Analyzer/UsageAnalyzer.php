@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace Jose\Component\KeyManagement\Analyzer;
 
-use Jose\Component\Core\JWK;
-use Override;
 use function array_diff;
 use function in_array;
 use function is_array;
+
+use Jose\Component\Core\JWK;
+use Override;
+
 use function sprintf;
 
 final readonly class UsageAnalyzer implements KeyAnalyzer

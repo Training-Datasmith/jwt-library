@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace Jose\Component\Signature;
 
-use InvalidArgumentException;
 use function array_key_exists;
+
+use InvalidArgumentException;
+
 use function sprintf;
 
 class Signature

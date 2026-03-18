@@ -7,6 +7,7 @@ namespace Jose\Component\Signature\Algorithm;
 use InvalidArgumentException;
 use Jose\Component\Core\JWK;
 use Override;
+
 use function strlen;
 
 final readonly class HS512 extends HMAC

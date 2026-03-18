@@ -4,15 +4,18 @@ declare(strict_types=1);
 
 namespace Jose\Component\Encryption\Serializer;
 
+use function array_key_exists;
+use function count;
+
 use InvalidArgumentException;
+
+use function is_array;
+
 use Jose\Component\Core\Util\Base64UrlSafe;
 use Jose\Component\Core\Util\JsonConverter;
 use Jose\Component\Encryption\JWE;
 use Jose\Component\Encryption\Recipient;
 use Override;
-use function array_key_exists;
-use function count;
-use function is_array;
 
 final readonly class JSONFlattenedSerializer implements JWESerializer
 {

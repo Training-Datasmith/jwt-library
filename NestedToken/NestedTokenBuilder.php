@@ -4,12 +4,13 @@ declare(strict_types=1);
 
 namespace Jose\Component\NestedToken;
 
+use function array_key_exists;
+
 use Jose\Component\Core\JWK;
 use Jose\Component\Encryption\JWEBuilder;
 use Jose\Component\Encryption\Serializer\JWESerializerManager;
 use Jose\Component\Signature\JWSBuilder;
 use Jose\Component\Signature\Serializer\JWSSerializerManager;
-use function array_key_exists;
 
 class NestedTokenBuilder
 {

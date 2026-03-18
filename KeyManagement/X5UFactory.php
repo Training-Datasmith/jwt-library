@@ -4,14 +4,15 @@ declare(strict_types=1);
 
 namespace Jose\Component\KeyManagement;
 
+use function assert;
+use function is_array;
+use function is_string;
+
 use Jose\Component\Core\JWK;
 use Jose\Component\Core\JWKSet;
 use Jose\Component\Core\Util\JsonConverter;
 use Jose\Component\KeyManagement\KeyConverter\KeyConverter;
 use RuntimeException;
-use function assert;
-use function is_array;
-use function is_string;
 
 class X5UFactory extends UrlKeySetFactory
 {
