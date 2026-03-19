@@ -143,6 +143,9 @@ abstract readonly class PBES2AESKW implements KeyWrapping
         if (! is_int($header['p2c']) || $header['p2c'] <= 0) {
             throw new InvalidArgumentException('The header parameter "p2c" is not valid.');
         }
+        if ($header['p2c'] > 310000) {
+            throw new InvalidArgumentException('The header parameter "p2c" exceeds the maximum allowed iteration count.');
+        }
     }
 
     abstract protected function getWrapper(): A256KW|A128KW|A192KW;
