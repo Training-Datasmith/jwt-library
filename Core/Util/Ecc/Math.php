@@ -1,39 +1,33 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace Jose\Component\Core\Util\Ecc;
 
-use Brick\Math\BigInteger;
-use Jose\Component\Core\Util\BigInteger as CoreBigInteger;
-
+use Brick\Math\Big_Integer;
+use Jose\Component\Core\Util\Big_Integer as CoreBigInteger;
 /**
  * @internal
  */
 final readonly class Math
 {
-    public static function equals(BigInteger $first, BigInteger $other): bool
+    public static function equals(Big_Integer $first, Big_Integer $other): bool
     {
-        return $first->isEqualTo($other);
+        return $first->is_equal_to($other);
     }
-
-    public static function add(BigInteger $augend, BigInteger $addend): BigInteger
+    public static function add(Big_Integer $augend, Big_Integer $addend): Big_Integer
     {
         return $augend->plus($addend);
     }
-
-    public static function toString(BigInteger $value): string
+    public static function to_string(Big_Integer $value): string
     {
-        return $value->toBase(10);
+        return $value->to_base(10);
     }
-
-    public static function inverseMod(BigInteger $a, BigInteger $m): BigInteger
+    public static function inverse_mod(Big_Integer $a, Big_Integer $m): Big_Integer
     {
-        return CoreBigInteger::createFromBigInteger($a)->modInverse(CoreBigInteger::createFromBigInteger($m))->get();
+        return Core_Big_Integer::create_from_big_integer($a)->mod_inverse(Core_Big_Integer::create_from_big_integer($m))->get();
     }
-
-    public static function baseConvert(string $number, int $from, int $to): string
+    public static function base_convert(string $number, int $from, int $to): string
     {
-        return BigInteger::fromBase($number, $from)->toBase($to);
+        return Big_Integer::from_base($number, $from)->to_base($to);
     }
 }

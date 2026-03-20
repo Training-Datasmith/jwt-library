@@ -1,22 +1,17 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace Jose\Component\Core;
 
 use function array_key_exists;
-
 use InvalidArgumentException;
-
 use function sprintf;
-
-final class AlgorithmManager
+final class Algorithm_Manager
 {
     /**
      * @var array<string, Algorithm>
      */
     private array $algorithms = [];
-
     /**
      * @param Algorithm[] $algorithms
      */
@@ -26,7 +21,6 @@ final class AlgorithmManager
             $this->add($algorithm);
         }
     }
-
     /**
      * Returns true if the algorithm is supported.
      *
@@ -36,7 +30,6 @@ final class AlgorithmManager
     {
         return array_key_exists($algorithm, $this->algorithms);
     }
-
     /**
      * @return array<string, Algorithm>
      */
@@ -44,7 +37,6 @@ final class AlgorithmManager
     {
         return $this->algorithms;
     }
-
     /**
      * Returns the list of names of supported algorithms.
      *
@@ -54,7 +46,6 @@ final class AlgorithmManager
     {
         return array_keys($this->algorithms);
     }
-
     /**
      * Returns the algorithm if supported, otherwise throw an exception.
      *
@@ -62,13 +53,11 @@ final class AlgorithmManager
      */
     public function get(string $algorithm): Algorithm
     {
-        if (! $this->has($algorithm)) {
+        if (!$this->has($algorithm)) {
             throw new InvalidArgumentException(sprintf('The algorithm "%s" is not supported.', $algorithm));
         }
-
         return $this->algorithms[$algorithm];
     }
-
     /**
      * Adds an algorithm to the manager.
      */

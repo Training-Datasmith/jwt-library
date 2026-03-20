@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace Jose\Component\Core\Util\Ecc;
 
-use Brick\Math\BigInteger;
-
+use Brick\Math\Big_Integer;
 use const STR_PAD_LEFT;
-
 use function strlen;
-
 /**
  * Copyright (C) 2012 Matyas Danter.
  *
@@ -26,84 +22,64 @@ use function strlen;
  * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
  * OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-
 /**
  * @internal
  */
 final readonly class Point
 {
-    private function __construct(
-        private BigInteger $x,
-        private BigInteger $y,
-        private BigInteger $order,
-        private bool $infinity = false
-    ) {
-    }
-
-    public static function create(BigInteger $x, BigInteger $y, ?BigInteger $order = null): self
+    private function __construct(private Big_Integer $x, private Big_Integer $y, private Big_Integer $order, private bool $infinity = false)
     {
-        return new self($x, $y, $order ?? BigInteger::zero());
     }
-
+    public static function create(Big_Integer $x, Big_Integer $y, ?Big_Integer $order = null): self
+    {
+        return new self($x, $y, $order ?? Big_Integer::zero());
+    }
     public static function infinity(): self
     {
-        $zero = BigInteger::zero();
-
+        $zero = Big_Integer::zero();
         return new self($zero, $zero, $zero, true);
     }
-
-    public function isInfinity(): bool
+    public function is_infinity(): bool
     {
         return $this->infinity;
     }
-
-    public function getOrder(): BigInteger
+    public function get_order(): Big_Integer
     {
         return $this->order;
     }
-
-    public function getX(): BigInteger
+    public function get_x(): Big_Integer
     {
         return $this->x;
     }
-
-    public function getY(): BigInteger
+    public function get_y(): Big_Integer
     {
         return $this->y;
     }
-
     public static function cswap(self $a, self $b, int $cond): void
     {
-        self::cswapBigInteger($a->x, $b->x, $cond);
-        self::cswapBigInteger($a->y, $b->y, $cond);
-        self::cswapBigInteger($a->order, $b->order, $cond);
-        self::cswapBoolean($a->infinity, $b->infinity, $cond);
+        self::cswap_big_integer($a->x, $b->x, $cond);
+        self::cswap_big_integer($a->y, $b->y, $cond);
+        self::cswap_big_integer($a->order, $b->order, $cond);
+        self::cswap_boolean($a->infinity, $b->infinity, $cond);
     }
-
-    private static function cswapBoolean(bool &$a, bool &$b, int $cond): void
+    private static function cswap_boolean(bool &$a, bool &$b, int $cond): void
     {
-        $sa = BigInteger::of((int) $a);
-        $sb = BigInteger::of((int) $b);
-
-        self::cswapBigInteger($sa, $sb, $cond);
-
-        $a = (bool) $sa->toBase(10);
-        $b = (bool) $sb->toBase(10);
+        $sa = Big_Integer::of((int) $a);
+        $sb = Big_Integer::of((int) $b);
+        self::cswap_big_integer($sa, $sb, $cond);
+        $a = (bool) $sa->to_base(10);
+        $b = (bool) $sb->to_base(10);
     }
-
-    private static function cswapBigInteger(BigInteger &$sa, BigInteger &$sb, int $cond): void
+    private static function cswap_big_integer(Big_Integer &$sa, Big_Integer &$sb, int $cond): void
     {
-        $size = max(strlen($sa->toBase(2)), strlen($sb->toBase(2)));
+        $size = max(strlen($sa->to_base(2)), strlen($sb->to_base(2)));
         $mask = (string) (1 - $cond);
         $mask = str_pad('', $size, $mask, STR_PAD_LEFT);
-        $mask = BigInteger::fromBase($mask, 2);
-        $taA = $sa->and($mask);
-        $taB = $sb->and($mask);
-        $sa = $sa->xor($sb)
-            ->xor($taB);
-        $sb = $sa->xor($sb)
-            ->xor($taA);
-        $sa = $sa->xor($sb)
-            ->xor($taB);
+        $mask = Big_Integer::from_base($mask, 2);
+        $ta_a = $sa->and($mask);
+        $ta_b = $sb->and($mask);
+        $sa = $sa->xor($sb)->xor($ta_b);
+        $sb = $sa->xor($sb)->xor($ta_a);
+        $sa = $sa->xor($sb)->xor($ta_b);
     }
 }

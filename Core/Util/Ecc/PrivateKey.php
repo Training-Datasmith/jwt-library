@@ -1,11 +1,9 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace Jose\Component\Core\Util\Ecc;
 
-use Brick\Math\BigInteger;
-
+use Brick\Math\Big_Integer;
 /**
  * Copyright (C) 2012 Matyas Danter.
  *
@@ -22,23 +20,19 @@ use Brick\Math\BigInteger;
  * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
  * OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-
 /**
  * @internal
  */
-final readonly class PrivateKey
+final readonly class Private_Key
 {
-    private function __construct(
-        private BigInteger $secret
-    ) {
+    private function __construct(private Big_Integer $secret)
+    {
     }
-
-    public static function create(BigInteger $secret): self
+    public static function create(Big_Integer $secret): self
     {
         return new self($secret);
     }
-
-    public function getSecret(): BigInteger
+    public function get_secret(): Big_Integer
     {
         return $this->secret;
     }

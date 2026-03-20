@@ -1,11 +1,9 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace Jose\Component\Core\Util\Ecc;
 
-use Brick\Math\BigInteger;
-
+use Brick\Math\Big_Integer;
 /*
  * *********************************************************************
  * Copyright (C) 2012 Matyas Danter
@@ -29,15 +27,13 @@ use Brick\Math\BigInteger;
  * OTHER DEALINGS IN THE SOFTWARE.
  * ***********************************************************************
  */
-
 /**
  * @internal
  */
-final readonly class EcDH
+final readonly class Ec_Dh
 {
-    public static function computeSharedKey(Curve $curve, PublicKey $publicKey, PrivateKey $privateKey): BigInteger
+    public static function compute_shared_key(Curve $curve, Public_Key $public_key, Private_Key $private_key): Big_Integer
     {
-        return $curve->mul($publicKey->getPoint(), $privateKey->getSecret())
-            ->getX();
+        return $curve->mul($public_key->get_point(), $private_key->get_secret())->get_x();
     }
 }

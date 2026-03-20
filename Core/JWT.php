@@ -1,7 +1,6 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace Jose\Component\Core;
 
 interface JWT
@@ -9,5 +8,5 @@ interface JWT
     /**
      * Returns the payload of the JWT. null is a valid payload (e.g. JWS with detached payload).
      */
-    public function getPayload(): ?string;
+    public function get_payload(): ?string;
 }

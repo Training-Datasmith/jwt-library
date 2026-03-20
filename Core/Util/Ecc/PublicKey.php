@@ -1,7 +1,6 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace Jose\Component\Core\Util\Ecc;
 
 /**
@@ -20,18 +19,15 @@ namespace Jose\Component\Core\Util\Ecc;
  * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
  * OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-
 /**
  * @internal
  */
-final readonly class PublicKey
+final readonly class Public_Key
 {
-    public function __construct(
-        private Point $point
-    ) {
+    public function __construct(private Point $point)
+    {
     }
-
-    public function getPoint(): Point
+    public function get_point(): Point
     {
         return $this->point;
     }

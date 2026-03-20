@@ -1,21 +1,17 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace Jose\Component\Core;
 
 use InvalidArgumentException;
-
 use function is_string;
 use function sprintf;
-
 /**
  * @see \Jose\Tests\Component\Core\AlgorithmManagerFactoryTest
  */
-final class AlgorithmManagerFactory
+final class Algorithm_Manager_Factory
 {
     private array $algorithms = [];
-
     /**
      * @param Algorithm[] $algorithms
      */
@@ -25,7 +21,6 @@ final class AlgorithmManagerFactory
             $this->add($algorithm->name(), $algorithm);
         }
     }
-
     /**
      * Adds an algorithm.
      *
@@ -36,7 +31,6 @@ final class AlgorithmManagerFactory
     {
         $this->algorithms[$alias] = $algorithm;
     }
-
     /**
      * Returns the list of aliases.
      *
@@ -46,7 +40,6 @@ final class AlgorithmManagerFactory
     {
         return array_keys($this->algorithms);
     }
-
     /**
      * Returns all algorithms supported by this factory. This is an associative array. Keys are the aliases of the
      * algorithms.
@@ -57,28 +50,23 @@ final class AlgorithmManagerFactory
     {
         return $this->algorithms;
     }
-
     /**
      * Create an algorithm manager using the given aliases.
      *
      * @param string[] $aliases
      */
-    public function create(array $aliases): AlgorithmManager
+    public function create(array $aliases): Algorithm_Manager
     {
         $algorithms = [];
         foreach ($aliases as $alias) {
-            if (! is_string($alias)) {
+            if (!is_string($alias)) {
                 throw new InvalidArgumentException('Invalid alias');
             }
-            if (! isset($this->algorithms[$alias])) {
-                throw new InvalidArgumentException(sprintf(
-                    'The algorithm with the alias "%s" is not supported.',
-                    $alias
-                ));
+            if (!isset($this->algorithms[$alias])) {
+                throw new InvalidArgumentException(sprintf('The algorithm with the alias "%s" is not supported.', $alias));
             }
             $algorithms[] = $this->algorithms[$alias];
         }
-
-        return new AlgorithmManager($algorithms);
+        return new Algorithm_Manager($algorithms);
     }
 }
