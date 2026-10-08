@@ -16,8 +16,10 @@ final class CurveMulTest extends TestCase
         $g = $curve->getGenerator();
         $twoG = $curve->mul($g, BigInteger::of(2));
 
+        // Independent 2G for SEC 2 / NIST P-256: double the standard generator in F_p
+        // (y^2 = x^3 + ax + b), cross-checked with python-ecdsa (2 * NIST256p.generator).
         $expectedX = BigInteger::fromBase('7cf27b188d034f7e8a52380304b51ac3c08969e277f21b35a60b48fc47669978', 16);
-        $expectedY = BigInteger::fromBase('7775510db8ed040293d9ac69f7430dbba7dade63ce982299e04b79d227873d1', 16);
+        $expectedY = BigInteger::fromBase('07775510db8ed040293d9ac69f7430dbba7dade63ce982299e04b79d227873d1', 16);
 
         self::assertTrue($twoG->getX()->isEqualTo($expectedX));
         self::assertTrue($twoG->getY()->isEqualTo($expectedY));
