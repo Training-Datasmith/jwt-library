@@ -95,7 +95,8 @@ final readonly class JSONGeneralSerializer extends Serializer
         }
 
         $payload = $this->processPayload($rawPayload, $isPayloadEncoded);
-        $jws = new JWS($payload, $rawPayload);
+        $isDetached = ! array_key_exists('payload', $data);
+        $jws = new JWS($payload, $rawPayload, $isDetached);
         foreach ($signatures as $signature) {
             $jws = $jws->addSignature(
                 $signature['signature'],

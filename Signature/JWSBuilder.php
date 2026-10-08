@@ -88,9 +88,7 @@ class JWSBuilder
     {
         $this->checkB64AndCriticalHeader($protectedHeader);
         $isPayloadEncoded = $this->checkIfPayloadIsEncoded($protectedHeader);
-        if ($this->isPayloadEncoded === null) {
-            $this->isPayloadEncoded = $isPayloadEncoded;
-        } elseif ($this->isPayloadEncoded !== $isPayloadEncoded) {
+        if ($this->isPayloadEncoded !== null && $this->isPayloadEncoded !== $isPayloadEncoded) {
             throw new InvalidArgumentException('Foreign payload encoding detected.');
         }
         $this->checkDuplicatedHeaderParameters($protectedHeader, $header);
@@ -98,6 +96,9 @@ class JWSBuilder
         $algorithm = $this->findSignatureAlgorithm($signatureKey, $protectedHeader, $header);
         KeyChecker::checkKeyAlgorithm($signatureKey, $algorithm->name());
         $clone = clone $this;
+        if ($clone->isPayloadEncoded === null) {
+            $clone->isPayloadEncoded = $isPayloadEncoded;
+        }
         $clone->signatures[] = [
             'signature_algorithm' => $algorithm,
             'signature_key' => $signatureKey,

@@ -74,6 +74,7 @@ class JWEBuilder
         $this->sharedProtectedHeader = [];
         $this->sharedHeader = [];
         $this->keyManagementMode = null;
+        $this->contentEncryptionAlgorithm = null;
 
         return $this;
     }
