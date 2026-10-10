@@ -66,6 +66,24 @@ final class JWEDecrypterEcdhSsAllowListTest extends TestCase
         self::assertSame(EcdhSsA128KwJweFixture::PAYLOAD, $loaded->getPayload());
     }
 
+    public function testDecryptsOnKeySetWhenEcdhSsA128KwIsAllowed(): void
+    {
+        $loaded = $this->loadFixtureToken();
+        $decrypter = new JWEDecrypter(new AlgorithmManager([new ECDHSSA128KW(), new A128GCM()]));
+        $usedKey = null;
+
+        self::assertTrue(
+            $decrypter->decryptUsingKeySet(
+                $loaded,
+                new JWKSet([EcdhSsA128KwJweFixture::senderPrivateKey()->toPublic()]),
+                0,
+                $usedKey,
+                EcdhSsA128KwJweFixture::receiverPrivateKey()
+            )
+        );
+        self::assertSame(EcdhSsA128KwJweFixture::PAYLOAD, $loaded->getPayload());
+    }
+
     private function loadFixtureToken(): JWE
     {
         return (new CompactSerializer())->unserialize(EcdhSsA128KwJweFixture::COMPACT_TOKEN);

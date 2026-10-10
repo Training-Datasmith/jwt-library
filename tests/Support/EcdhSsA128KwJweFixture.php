@@ -7,7 +7,8 @@ namespace Jose\Tests\Support;
 use Jose\Component\Core\JWK;
 
 /**
- * Fixed ECDH-SS+A128KW / A128GCM compact JWE built from the RFC 7518 appendix C P-256 key pair
+ * Fixed ECDH-SS+A128KW / A128GCM compact JWE. Receiver: RFC 7518 Appendix C consumer (Bob) P-256 key.
+ * Sender: static P-256 key from jwt-framework's ECDH-SS tests (not from RFC 7518).
  * (sender private + receiver public at encrypt; decrypt uses sender public + receiver private).
  */
 final class EcdhSsA128KwJweFixture
