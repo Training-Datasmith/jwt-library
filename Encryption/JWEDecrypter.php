@@ -71,7 +71,7 @@ class JWEDecrypter
     {
         $jwkset = new JWKSet([$jwk]);
 
-        return $this->decryptUsingKeySet($jwe, $jwkset, $recipient, $senderKey);
+        return $this->decryptUsingKeySet($jwe, $jwkset, $recipient, senderKey: $senderKey);
     }
 
     /**
